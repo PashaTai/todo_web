@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "tasks/new" => "tasks#new"
   post "tasks" => "tasks#create"
   post "tasks/:id/complete" => "tasks#complete"
-  post "tasks/:id/delete" => "tasks#delete"
+  post "tasks/:id/delete" => "tasks#destroy"
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
