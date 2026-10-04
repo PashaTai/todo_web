@@ -1,0 +1,9 @@
+<h1>Новая задача</h1>
+<% if @task != nil %>
+  <%= @task.errors.full_messages.join(', ') %>
+<% end %>
+<%= form_with url: "/tasks", method: :post do |form| %>
+  <%= form.label :title, "Название" %>
+  <%= form.text_field :title %>
+  <%= form.submit "Добавить" %>
+<% end %>

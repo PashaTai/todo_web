@@ -2,4 +2,14 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
   end
+  def new
+  end
+  def create
+    @task = Task.new(title: params[:title])
+    if @task.save
+      redirect_to "/tasks"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 end
