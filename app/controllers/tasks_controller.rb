@@ -12,4 +12,9 @@ class TasksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  def complete
+    task = Task.find(params[:id])
+    task.update(done: true)
+    redirect_to "/tasks"
+  end
 end
