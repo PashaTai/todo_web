@@ -17,4 +17,9 @@ class TasksController < ApplicationController
     task.update(done: true)
     redirect_to "/tasks"
   end
+  def delete
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_to "/tasks"
+  end
 end
