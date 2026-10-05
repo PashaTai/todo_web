@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get "about" => "pages#about"
   get "hello(/:name)" => "pages#hello"
-  get "tasks" => "tasks#index"
-  get "tasks/new" => "tasks#new"
-  post "tasks" => "tasks#create"
-  post "tasks/:id/complete" => "tasks#complete"
-  post "tasks/:id/delete" => "tasks#destroy"
+  resources :tasks, only: [ :index, :create, :destroy, :new ] do
+    member do
+      post :complete
+    end
+  end
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

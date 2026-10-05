@@ -3,9 +3,9 @@
   <% @tasks.each do |task| %>
     <li><%= task.title %>
       <% if task.done %>
-        [X] <%= button_to 'Удалить задачу', "/tasks/#{task.id}/delete" %>
+        [X] <%= button_to 'Удалить задачу', "/tasks/#{task.id}", method: :delete %>
       <% else %>
-        [ ] <%= button_to 'Выполнить', "/tasks/#{task.id}/complete"%> <%= button_to 'Удалить задачу', "/tasks/#{task.id}/delete" %>
+        [ ] <%= button_to 'Выполнить', "/tasks/#{task.id}/complete"%> <%= button_to 'Удалить задачу', "/tasks/#{task.id}", method: :delete %>
       <%end%></li>
   <% end %>
 </ul>
