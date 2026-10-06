@@ -22,4 +22,15 @@ class TasksController < ApplicationController
     task.destroy
     redirect_to "/tasks"
   end
+  def edit
+    @task = Task.find(params[:id])
+  end
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(title: params[:title])
+      redirect_to "/tasks"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 end

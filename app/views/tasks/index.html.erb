@@ -1,11 +1,12 @@
 <h1>Мои задачи</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.title %>
+    <li>
       <% if task.done %>
-        [X] <%= button_to 'Удалить задачу', "/tasks/#{task.id}", method: :delete %>
+        [X] <%= task.title %> <%= button_to 'Удалить задачу', "/tasks/#{task.id}", method: :delete %> <%= link_to 'Изменить', "/tasks/#{task.id}/edit" %>
       <% else %>
-        [ ] <%= button_to 'Выполнить', "/tasks/#{task.id}/complete"%> <%= button_to 'Удалить задачу', "/tasks/#{task.id}", method: :delete %>
-      <%end%></li>
+        [ ] <%= task.title %> <%= button_to 'Выполнить', "/tasks/#{task.id}/complete"%> <%= button_to 'Удалить задачу', "/tasks/#{task.id}", method: :delete %> <%= link_to 'Изменить', "/tasks/#{task.id}/edit" %>
+      <% end %>
+    </li>
   <% end %>
 </ul>

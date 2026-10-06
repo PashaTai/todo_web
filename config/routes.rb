@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get "about" => "pages#about"
   get "hello(/:name)" => "pages#hello"
-  resources :tasks, only: [ :index, :create, :destroy, :new ] do
+  resources :tasks, only: [ :index, :create, :destroy, :new, :edit, :update] do
     member do
       post :complete
     end

@@ -8,3 +8,9 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.button_to {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
