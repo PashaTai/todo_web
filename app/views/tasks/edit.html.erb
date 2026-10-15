@@ -1,7 +1,5 @@
 <h1>Изменить задачу «<%= @task.title%>» </h1>
-<% if @task != nil %>
-  <%= @task.errors.full_messages.join(', ') %>
-<% end %>
+<%= render "form" %>
 <%= form_with url: "/tasks/#{@task.id}/", method: :patch do |form| %>
   <%= form.label :title, "Название" %>
   <%= form.text_field :title, value: @task.title%>
